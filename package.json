@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "create-react-app": "^5.0.1",
+    "tar": "^6.2.0"
+  },
+
+  "proxy": "https://localhost:8000",
+
+  "scripts": {
+    "start": "npx nodemon index.js"
+  }
+}

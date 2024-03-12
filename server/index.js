@@ -1,19 +1,20 @@
-const http = require('http')
-const port = 8000
-http.createServer((request, response) => {
-response.writeHead(200, {'Content-Type':'text/html'})
-response.write(`
-<!doctype html>
-<html>
-<head>
-<title>Node.js</title>
-</head>
-<body>
- <h3>Welcome to Node.js</h3>
- <b>Node.js runs JavaScript on Server-Side</b>
- </body>
- </html>
- `)
- response.end()
- }).listen(port)
- console.log('Server listening on port '+port)
+const express = require('express')
+const mongoose = require('mongoose')
+const cors = require('cors')
+const GoldcountModel = require('./models/Goldcount')
+
+const app = express()
+app.use(cors())
+app.use(express.json())
+
+mongoose.connect("mongodb://127.0.0.1:27017/GoldRfid")
+
+app.get('/getGoldcount', (req, res) => {
+    GoldcountModel.find()
+    .then(goldcount => res.json(goldcount))
+    .catch(err => res.json(err))
+})
+
+app.listen(3001, () => {
+    console.log("Server is running")
+})

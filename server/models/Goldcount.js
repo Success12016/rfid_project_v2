@@ -7,5 +7,5 @@ const GoldcountSchema = new mongoose.Schema({
     weight: String
 })
 
-const GoldcountModel = mongoose.model("goldcount",GoldcountSchema)
+const GoldcountModel = mongoose.model("Goldcount",GoldcountSchema)
 module.exports = GoldcountModel

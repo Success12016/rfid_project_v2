@@ -7,11 +7,17 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-mongoose.connect("mongodb://127.0.0.1:27017/GoldRfid")
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
+mongoose.connect("mongodb+srv://admin:1234@goldcluster.nf1xhez.mongodb.net/GoldRfid")
 
 app.get('/getGoldcount', (req, res) => {
     GoldcountModel.find()
-    .then(goldcount => res.json(goldcount))
+    .then(Goldcount => res.json(Goldcount))
     .catch(err => res.json(err))
 })
 

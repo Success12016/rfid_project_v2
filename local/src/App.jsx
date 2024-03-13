@@ -4,20 +4,17 @@ import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
-  
+  const [goldData, setGoldData] = useState([])
   useEffect(() => {
-    const [Goldcount, setGoldcount] = useState([])
-    axios.get('http://localhost:3001/goldcount')
-    .then(Goldcount => setGoldcount(Goldcount.data))
+    axios.get('http://localhost:3001/getGoldcount')
+    .then(response => setGoldData(response.data))
     .catch(err => console.log(err))
   }, [])
-
 
 return(
   <div className="w-100 vh-100 d-flex justify-content-center align-items-center">
     <div className="w-50">
     <table className="table">
-      หก
       <thead>
         <tr>
           <th>
@@ -36,12 +33,12 @@ return(
       </thead>
       <tbody>
         {
-          goldcount.map(goldcount => {
-            return <tr>
-              <td>{goldcount.gold_id}</td>
-              <td>{goldcount.goldtype}</td>
-              <td>{goldcount.size}</td>
-              <td>{goldcount.weight}</td>
+          goldData.map(item => {
+            return <tr key={item._id}>
+              <td>{item.gold_id}</td>
+              <td>{item.goldtype}</td>
+              <td>{item.size}</td>
+              <td>{item.weight}</td>
             </tr>
           })
         }

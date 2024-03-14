@@ -7,7 +7,7 @@ function App() {
   const [goldData, setGoldData] = useState([])
   useEffect(() => {
     axios.get('http://localhost:3001/getGoldcount')
-    .then(response => setGoldData(response.data))
+    .then(goldData => setGoldData(goldData.data))
     .catch(err => console.log(err))
   }, [])
 
@@ -34,7 +34,7 @@ return(
       <tbody>
         {
           goldData.map(item => {
-            return <tr key={item._id}>
+            return <tr>
               <td>{item.gold_id}</td>
               <td>{item.goldtype}</td>
               <td>{item.size}</td>

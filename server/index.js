@@ -13,12 +13,15 @@ app.use(function(req, res, next) {
     next();
   });
 
-mongoose.connect("mongodb+srv://admin:1234@goldcluster.nf1xhez.mongodb.net/GoldRfid")
+mongoose.connect("mongodb+srv://admin:1234@goldcluster.nf1xhez.mongodb.net/")
 
-app.get('/getGoldcount', (req, res) => {
-    GoldcountModel.find()
-    .then(Goldcount => res.json(Goldcount))
-    .catch(err => res.json(err))
+app.get('/getGoldcount', async (req, res) => {
+    try {
+        const Goldcount = await GoldcountModel.find();
+        res.json(Goldcount);
+    } catch (err) {
+        res.json(err);
+    }
 })
 
 app.listen(3001, () => {

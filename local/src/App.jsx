@@ -49,15 +49,8 @@ return(
       </tbody>
     </table>
     </div>
-  </div>*/
-  <Navbar expand="xl" className="navbar navbar-expand-lg bg-body-tertiary">
-      <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
+  </div>
+  
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
@@ -68,7 +61,17 @@ return(
               <NavDropdown.Item href="#action/3.4">
                 Separated link
               </NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown>*/
+            
+  <Navbar expand="xl" className="navbar navbar-expand-lg bg-body-tertiary">
+      <Container>
+        <Navbar.Brand href="#home">Gold Inventory System</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#quantity">จำนวน</Nav.Link>
+            <Nav.Link href="#detail">รายละเอียด</Nav.Link>
+            <Nav.Link href="#history">ประวัติซื้อขาย</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
